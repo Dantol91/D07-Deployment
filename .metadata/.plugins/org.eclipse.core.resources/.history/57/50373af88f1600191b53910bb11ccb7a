@@ -1,0 +1,47 @@
+# messages.properties
+#
+# Copyright (C) 2018 Universidad de Sevilla
+# 
+# The use of this project is hereby constrained to the conditions of the 
+# TDG Licence, a copy of which you may download from 
+# http://www.tdg-seville.info/License.html
+
+
+application.display							= Display
+
+application.price			= Price
+application.moment= Moment
+application.status= Status
+application.customerComments= Customer comments
+application.creditCard= Credit card
+
+application.customer=Customer
+application.customer.name= Customer´s name
+
+application.fixupTask= Fixuptask
+application.workerComments= Worker comments
+
+
+application.accept=Accepted
+creditCard.holderName= Holder name
+creditCard.brandName							= Brand name
+creditCard.number								= Number
+creditCard.expirationDate						= Expiration date
+creditCard.cvv									= CVV
+
+creditCard.use 									= Use credit card
+creditCard.notuse 								= Dont use credit card
+
+application.save								= Save
+application.return								= Return
+application.edit								= Edit
+application.handyWorker							= Handyworker
+application.handyworker.name					= HandyWorker
+fixupTask.name									= Nombre
+application.create								= Create
+
+application.list 								= List applications
+
+application.myApplications 						= My Applications
+application.allApplications 					= All Applications
+appication.fromFixupTask 						= The selected fix-up task has this ticker
