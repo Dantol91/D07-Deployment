@@ -276,9 +276,4 @@ public class FixupTaskController extends AbstractController {
 		return result;
 	}
 
-	//	<input type ="button"
-	//		name="cancel"
-	//		value="<spring:message code="fixupTask.edit.cancel"/>"
-	//		onclick = "javascript:
-	//				relativeRedir('fixupTask/customer/list.do');" />
 }

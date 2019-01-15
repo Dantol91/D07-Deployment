@@ -1,0 +1,57 @@
+# messages.properties
+#
+# Copyright (C) 2018 Universidad de Sevilla
+# 
+# The use of this project is hereby constrained to the conditions of the 
+# TDG Licence, a copy of which you may download from 
+# http://www.tdg-seville.info/License.html
+
+master.page.administrator					= Administrator
+master.page.administrator.profile			= Profile
+master.page.administrator.edit				= Editar datos personales
+master.page.administrator.listActors		= List actors
+master.page.administrator.profile			= Profile
+master.page.administrator.create			= Create administrator
+master.page.listsuspiciousactors			= List of suspicious actors
+master.page.warranty.list 					= List of warranties
+master.page.category.list					= List of categories
+
+master.page.socialProfiles					= Social Profiles
+
+master.page.customer						= Customer
+master.page.customer.profile				= Profile
+master.page.profile 						= Profile
+
+
+master.page.login 							= Login
+master.page.logout 							= Logout
+
+master.page.signup							= Sign Up
+
+master.page.listfolders 		   			 = List of Folders 
+master.page.writemessage           			 = Write message
+
+cannot.commit.error               			  = Cannot commit this operation
+confirm.phone                      			 = Will you want add this phone ?
+
+master.page.handyWorker.workPlan			= List of Work Plans
+master.page.handyWorker.application.list	= List of applications
+master.page.handyWorker						= HandyWorker
+
+master.page.listsuspiciousactors 	= List of Suspicious actors
+master.page.createreferee 			= Register referee
+master.page.referee 				= Referee
+master.page.refereeprofile 			= Referee Profile
+master.page.editsettings 			= Edit System's settings
+
+master.page.handyWorker.curriculum  = Curriculum
+
+master.page.dashboard 				= Admin Dashboard
+
+master.page.AsHandyWorker 			= As Handy Worker
+master.page.AsReferee 				= As Referee
+master.page.AsCustomer 				= As Customer
+
+master.page.listfixuptasks 			= List of FixupTasks
+
+master.page.broadcast 				= Broadcast message

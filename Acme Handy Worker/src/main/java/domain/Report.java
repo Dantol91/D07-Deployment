@@ -42,8 +42,6 @@ public class Report extends DomainEntity {
 	private Collection<Note>	notes;
 
 
-	//----------Getters y Setters-------
-
 	@Past
 	@NotNull
 	@DateTimeFormat(pattern = "dd/MM/yyyy")

@@ -134,6 +134,17 @@ public class ReportController extends AbstractController {
 		return res;
 	}
 
+	@RequestMapping(value = "/display", method = RequestMethod.GET)
+	public ModelAndView display(@RequestParam final int reportId) {
+		ModelAndView result;
+		Report r;
+		r = this.reportService.findOne(reportId);
+		result = new ModelAndView("report/display");
+		result.addObject("report", r);
+
+		return result;
+	}
+
 	// Ancillary methods
 
 	private ModelAndView createEditModelAndView(final Report report) {

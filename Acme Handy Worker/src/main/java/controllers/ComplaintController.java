@@ -49,7 +49,7 @@ public class ComplaintController extends AbstractController {
 
 	// Display
 
-	@RequestMapping(value = "/display", method = RequestMethod.GET)
+	@RequestMapping(value = "endorsable/display", method = RequestMethod.GET)
 	public ModelAndView display(@RequestParam final int complaintId) {
 		ModelAndView result;
 		Complaint c;
@@ -81,12 +81,12 @@ public class ComplaintController extends AbstractController {
 
 	protected ModelAndView createEditModelAndView(final Complaint complaint, final String messageCode) {
 		final ModelAndView result;
-		Collection<FixupTask> fixs = new ArrayList<>();
-		fixs = this.fixupTaskService.findAll();
+		Collection<FixupTask> fixuptasks = new ArrayList<>();
+		fixuptasks = this.fixupTaskService.findAll();
 
 		result = new ModelAndView("complaint/create");
 		result.addObject("complaint", complaint);
-		result.addObject("FIXUPTASKS", fixs);
+		result.addObject("fixuptasks", fixuptasks);
 		result.addObject("message", messageCode);
 
 		return result;
