@@ -64,7 +64,7 @@ public class WorkPlanService {
 	public Boolean checkStatusApplicationAccepted(final WorkPlan w) {
 		Boolean res = false;
 		final int fixupTaskId = w.getFixupTask().getId();
-		final Collection<Application> applications = this.applicationService.findApplicationsByHandyWorker(w.getHandyWorker());
+		final Collection<Application> applications = this.applicationService.getApplicationsByHandyWorker(w.getHandyWorker());
 		for (final Application a : applications)
 			if (a.getFixupTask().getId() == fixupTaskId) {
 				if (a.getStatus().equals("ACCEPTED"))
@@ -78,14 +78,14 @@ public class WorkPlanService {
 		Assert.notNull(h);
 		Assert.isTrue(h.getId() > 0);
 		Assert.notNull(this.handyWorkerService.findOne(h.getId()));
-		return this.workPlanRepository.findWorkPlanByHandyWorker(h.getId());
+		return this.workPlanRepository.getWorkPlanByHandyWorker(h.getId());
 	}
 
 	public Collection<WorkPlan> findWorkPlanByFixupTask(final FixupTask f) {
 		Assert.notNull(f);
 		Assert.isTrue(f.getId() > 0);
 		Assert.notNull(this.handyWorkerService.findOne(f.getId()));
-		return this.workPlanRepository.findWorkPlanByHandyWorker(f.getId());
+		return this.workPlanRepository.getWorkPlanByHandyWorker(f.getId());
 	}
 
 }

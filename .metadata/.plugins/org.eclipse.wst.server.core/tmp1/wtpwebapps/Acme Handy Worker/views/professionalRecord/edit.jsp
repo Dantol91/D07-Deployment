@@ -32,7 +32,7 @@
 
 
 			<fieldset>
-				<!-------------------Form ------------------------------------>
+		
 				<div>
 					<form:label path="company">
 						<spring:message code="professionalRecord.company"></spring:message>
@@ -90,15 +90,7 @@
 					<br />
 				</div>
 
-
-
-
-
-
 			</fieldset>
-
-
-			<!--  Los botones de crear y cancelar -->
 
 			<input type="submit" name="save"
 				value="<spring:message code="professionalRecord.save"></spring:message>" />
@@ -114,17 +106,8 @@
 					onclick="return confirm('<spring:message code="professionalRecord.confirm.delete" />')" />&nbsp;
 	</jstl:if>
 
-
-
-
-
-
 		</form:form>
 
 	</div>
-
-
-
-
 
 </security:authorize>

@@ -63,7 +63,7 @@ public class SettingsService {
 	// Other methods
 
 	public Settings findSettings() {
-		return this.repository.findSettings();
+		return this.repository.getSettings();
 	}
 
 	public void flush() {

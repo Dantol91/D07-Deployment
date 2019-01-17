@@ -32,7 +32,7 @@
 
 
 			<fieldset>
-				<!-------------------Form ------------------------------------>
+			
 				<div>
 					<form:label path="diplomaTitle">
 						<spring:message code="educationRecord.diplomaTitle"></spring:message>
@@ -90,15 +90,7 @@
 					<br />
 				</div>
 
-
-
-
-
-
-			</fieldset>
-
-
-			<!--  Los botones de crear y cancelar -->
+	</fieldset>
 
 			<input type="submit" name="save"
 				value="<spring:message code="educationRecord.save"></spring:message>" />
@@ -115,16 +107,8 @@
 	</jstl:if>
 
 
-
-
-
-
 		</form:form>
 
 	</div>
-
-
-
-
 
 </security:authorize>

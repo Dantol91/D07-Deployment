@@ -154,7 +154,7 @@ public class EndorsementService {
 
 	public Collection<Customer> GiveCustomersByHandyWorker(final HandyWorker h) {
 		final Collection<Customer> customers = new ArrayList<>();
-		final Collection<Application> applications = this.applicationService.findApplicationsByHandyWorker(h);
+		final Collection<Application> applications = this.applicationService.getApplicationsByHandyWorker(h);
 		for (final Application a : applications)
 			if (a.getStatus().equals("ACCEPTED") && a.getHandyWorker().equals(h))
 				customers.add(a.getFixupTask().getCustomer());

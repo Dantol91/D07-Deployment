@@ -32,7 +32,7 @@
 
 
 			<fieldset>
-				<!-------------------Form ------------------------------------>
+			
 				<div>
 					<form:label path="fullName">
 						<spring:message code="endorserRecord.fullName"></spring:message>
@@ -79,18 +79,7 @@
 					<br />
 				</div>
 
-
-
-				
-
-
-
-
-
-			</fieldset>
-
-
-			<!--  Los botones de crear y cancelar -->
+		</fieldset>
 
 			<input type="submit" name="save"
 				value="<spring:message code="endorserRecord.save"></spring:message>" />
@@ -107,16 +96,9 @@
 	</jstl:if>
 
 
-
-
-
-
 		</form:form>
 
 	</div>
-
-
-
 
 
 </security:authorize>

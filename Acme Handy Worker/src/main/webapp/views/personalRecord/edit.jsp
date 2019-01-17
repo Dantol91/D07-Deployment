@@ -32,7 +32,7 @@
 
 
 			<fieldset>
-				<!-------------------Form ------------------------------------>
+			
 				<div>
 					<form:label path="fullName">
 						<spring:message code="personalRecord.fullName"></spring:message>

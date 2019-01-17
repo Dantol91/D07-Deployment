@@ -137,7 +137,7 @@ public class SectionService {
 		Assert.notNull(numberOrder);
 		Assert.isTrue(numberOrder > 0);
 		this.serviceUtils.checkObject(tutorial);
-		return this.repository.findNextSections(numberOrder, tutorial.getId());
+		return this.repository.getNextSections(numberOrder, tutorial.getId());
 	}
 
 	public void flush() {

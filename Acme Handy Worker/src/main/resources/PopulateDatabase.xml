@@ -1985,7 +1985,7 @@
 	</bean>
 				
 	<bean id="endorserRecord2" class="domain.EndorserRecord">
-		<property name="fullName" value="Emasesa"></property>
+		<property name="fullName" value="name2"></property>
 		<property name="photo" value="https://photo1.jpg"></property>
 		<property name="email" value="endo2@gmail.es"></property>
 		<property name="phone" value="+34(456)121426712"></property>

@@ -24,20 +24,15 @@
 	requestURI="endorserRecord/handyWorker/list.do" pagesize="5"
 	class="displaytag">
 
-	<%--  Primero compruebo que es un handyWorker --%>
 	<security:authorize access="hasRole('HANDYWORKER')">
 
-
-		<%--  La columna que va a la vista edit de las endorserRecord --%>
-		<display:column>
+	<display:column>
 			<a
 				href="endorserRecord/handyWorker/edit.do?endorserRecordId=${endorserRecord.id}"><spring:message
 					code="endorserRecord.edit"></spring:message></a>
 		</display:column>
 
-
-		<%--  La columna que va a la vista display de las endorserRecord --%>
-		<display:column>
+	<display:column>
 			<a
 				href="endorserRecord/handyWorker/display.do?endorserRecordId=${endorserRecord.id}"><spring:message
 					code="endorserRecord.display"></spring:message></a>
@@ -46,35 +41,27 @@
 		<spring:message code="endorserRecord.fullName"
 			var="endorserRecordFullName"></spring:message>
 		<display:column property="fullName"
-			title="${endorserRecordFullName}" sortable="true" />
+			title="${endorserRecordFullName}" sortable="false" />
 
 		<spring:message code="endorserRecord.photo" var="photo"></spring:message>
-		<display:column property="photo" title="${photo}" sortable="true" />
+		<display:column property="photo" title="${photo}" sortable="false" />
 
 		<spring:message code="endorserRecord.email" var="email"></spring:message>
-		<display:column property="email" title="${email}" sortable="true" />
+		<display:column property="email" title="${email}" sortable="false" />
 
 
 		<spring:message code="endorserRecord.phone" var="phone"></spring:message>
 		<display:column property="phone" title="${phone}"
-			sortable="true" />
+			sortable="false" />
 
 		<spring:message code="endorserRecord.linkedinProfile" var="linkedinProfile"></spring:message>
 		<display:column property="linkedinProfile" title="${linkedinProfile}"
-			sortable="true" />
+			sortable="false" />
 
 	
-
-
-
-
-
-
 	</security:authorize>
 </display:table>
 
-
-<%--  Boton de creacion --%>
 <security:authorize access="hasRole('HANDYWORKER')">
 
 	<input type="button" name="create"
@@ -82,7 +69,6 @@
 		onclick="javascript:relativeRedir('endorserRecord/handyWorker/create.do')" />
 </security:authorize>
 
-<%--  Boton de ATRAS --%>
 <security:authorize access="hasRole('HANDYWORKER')">
 
 	<input type="button" name="back"

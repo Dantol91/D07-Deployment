@@ -16,7 +16,7 @@ public interface ActorRepository extends JpaRepository<Actor, Integer> {
 	//Q.C1
 	//The average, the minimum, the maximum, and the standard deviation of the number of fix-up tasks per user
 
-	@Query("select min(u.fixupTasks.size),max(u.fixupTasks.size),avg(u.fixupTasks.size),sqrt(sum(u.fixupTasks.size * u.fixupTasks.size) /count(u.fixupTasks.size) - (avg(u.fixupTasks.size) *avg(u.fixupTasks.size))) from Actor u")
+	@Query("select min(a.fixupTasks.size),max(a.fixupTasks.size),avg(a.fixupTasks.size),sqrt(sum(a.fixupTasks.size * a.fixupTasks.size) /count(a.fixupTasks.size) - (avg(a.fixupTasks.size) *avg(a.fixupTasks.size))) from Actor a")
 	Double[] fixupTasksStats();
 
 }

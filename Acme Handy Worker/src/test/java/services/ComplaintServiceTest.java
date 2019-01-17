@@ -42,7 +42,7 @@ public class ComplaintServiceTest extends AbstractTest {
 
 		final Complaint complaint;
 		complaint = this.complaintService.findOne(super.getEntityId("complaint2"));
-		this.complaintService.delete(complaint);
+		this.complaintService.deleteAux(complaint);
 
 	}
 

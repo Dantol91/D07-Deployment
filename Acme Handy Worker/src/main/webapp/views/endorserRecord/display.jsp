@@ -42,12 +42,3 @@
 <input type="button" name="edit" value="<spring:message code="endorserRecord.edit"></spring:message>" onclick="javascript:relativeRedir('endorserRecord/handyWorker/edit.do?endorserRecordId=${endorserRecord.id}')"/>	
 <input type="button" name="cancel" value="<spring:message code="endorserRecord.cancel"></spring:message>" onclick="javascript:relativeRedir('endorserRecord/handyWorker/list.do')" />	
 
-
-
-
-
-
-
-
-
-

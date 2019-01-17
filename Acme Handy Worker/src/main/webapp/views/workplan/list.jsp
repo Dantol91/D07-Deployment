@@ -24,7 +24,7 @@
 <display:table pagesize="5" class="displaytag" keepStatus="true"
 	name="workplans" requestURI="${requestURI}" id="row">
 	
-	<!-- Attributos -->
+	<!-- Attributes -->
 	<security:authorize access="hasRole('HANDYWORKER')">
 	<spring:message code="workplan.edit" var="work" />
 		<display:column title="${work}">
@@ -51,7 +51,6 @@
 
 </display:table>
 
-<!-- Botones  -->
 
 <security:authorize access="hasRole('HANDYWORKER')">
 	<div>

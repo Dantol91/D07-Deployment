@@ -99,9 +99,7 @@ catch(NullPointerException e){
 					code="customer.display" />
 			</a>
 		</display:column>
-		
 
-<!-- Listado de Applications de Customer -->
 		
 	<security:authorize access="hasRole('CUSTOMER')">	
 		<display:column>
@@ -111,8 +109,6 @@ catch(NullPointerException e){
 		</display:column>
 	</security:authorize>
 
-
-<!-- Listado de Applications de HandyWorker -->
 
 <security:authorize access="hasRole('HANDYWORKER')">	
 		<display:column>

@@ -10,6 +10,6 @@ import domain.Sponsor;
 public interface SponsorRepository extends GenericRepository<Sponsor> {
 
 	@Query("select s from Sponsor s where s.id = ?1")
-	Sponsor findSponsorById(int id);
+	Sponsor getSponsorById(int id);
 
 }

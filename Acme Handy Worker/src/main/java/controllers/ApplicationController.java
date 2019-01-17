@@ -49,7 +49,7 @@ public class ApplicationController extends AbstractController {
 		Collection<Application> allApplications;
 
 		final HandyWorker h = (HandyWorker) this.actorService.findPrincipal();
-		applications = this.applicationService.findApplicationsByHandyWorker(h);
+		applications = this.applicationService.getApplicationsByHandyWorker(h);
 		allApplications = this.applicationService.findAll();
 
 		result = new ModelAndView("application/list");

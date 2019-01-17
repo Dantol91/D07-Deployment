@@ -24,9 +24,6 @@
 <br />
 
 
-
-
-
 <security:authorize access="hasRole('HANDYWORKER')">
 
 	<security:authentication property="principal.username" var="username" />
@@ -155,17 +152,8 @@
 			<input type="button" name="seeMiscellaneousRecords" value="${seeMiscellaneousRecords}"
 				onclick="javascript:relativeRedir('miscellaneousRecord/handyWorker/list.do')" />
 			
-			
-			
+					
 		</fieldset>
-
-
-
-
-
-
-
-
 
 	</jstl:if>
 

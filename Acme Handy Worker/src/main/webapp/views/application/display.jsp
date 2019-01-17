@@ -48,15 +48,9 @@
 	
 	<br />
 	
-<%-- 	<spring:message code="application.customer"></spring:message> <jstl:out value="${application.customer.name}"></jstl:out>
-	<br /> --%>
-	
 	<spring:message code="application.handyWorker"></spring:message> <jstl:out value="${application.handyWorker.name}"></jstl:out>
 	<br />
 	<br />
-
-
-<!-- Boton return -->
 
 			
 	<security:authorize access="hasRole('HANDYWORKER')">	

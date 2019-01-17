@@ -23,34 +23,34 @@ public interface FixupTaskRepository extends JpaRepository<FixupTask, Integer> {
 	Collection<FixupTask> findByWarrantyId(int warrantyId);
 
 	@Query("select distinct f from Application a join a.fixupTask f where a.status = 'ACCEPTED' and (select  w from WorkPlan w where w.fixupTask.id = f.id) = null")
-	Collection<FixupTask> findAcceptedFixupTasks();
+	Collection<FixupTask> getAcceptedFixupTasks();
 
 	@Query("select DISTINCT f from FixupTask f join f.applications a where a.status = 'ACCEPTED' and a.handyWorker.id = ?1")
-	Collection<FixupTask> findAcceptedFixupTasksByHandyWorker(Integer handyWorkerId);
+	Collection<FixupTask> getAcceptedFixupTasksByHandyWorker(Integer handyWorkerId);
 
 	//Q.C2
 	//The average, the minimum, the maximum, and the standard deviation of the number of applications per fix-up task
 
 	@Query("select min(f.applications.size),max(f.applications.size),avg(f.applications.size),sqrt(sum(f.applications.size * f.applications.size) /count(f.applications.size) - (avg(f.applications.size) *avg(f.applications.size))) from FixupTask f")
-	Double[] appsStats();
+	Double[] getApplicationsStats();
 
 	//Q.C3
 	//The average, the minimum, the maximum, and the standard deviation of the maximum price of the fix-up tasks.
 
 	@Query("select min(f.maximumPrice),max(f.maximumPrice),avg(f.maximumPrice),sqrt(sum(f.maximumPrice * f.maximumPrice) /count(f.maximumPrice) - (avg(f.maximumPrice) *avg(f.maximumPrice))) from FixupTask f")
-	Double[] maxFixupStaskStats();
+	Double[] getApplicationsMaxFixupStaskStats();
 
 	//Q.B1
 
 	@Query("select min(t.complaints.size), max(t.complaints.size),avg(t.complaints.size),sqrt(sum(t.complaints.size*t.complaints.size)/count(t.complaints.size)-(avg(t.complaints.size)*avg(t.complaints.size))) from FixupTask t")
-	Double[] fixupComplaintsStats();
+	Double[] getFixupComplaintsStats();
 
 	//Q.B3
 	@Query("select (count(f)*1.0)/(select count(f1)*1.0 from FixupTask f1) from FixupTask f where not exists(select c from Complaint c where c.fixuptask.id = f.id))")
-	Double ratiofixupComplaint();
+	Double getRatiofixupComplaint();
 
 	@Query("select distinct f from FixupTask f where f not in (select distinct f1 from FixupTask f1 join f1.applications a where a.handyWorker.id = ?1)")
-	Collection<FixupTask> findFixupTasksNotAppliedByHandyWorker(Integer handyWorkerId);
+	Collection<FixupTask> getFixupTasksNotAppliedByHandyWorker(Integer handyWorkerId);
 
 	@Query("select f from FixupTask f where f.ticker like concat(concat('%' , ?1) , '%') or f.description like concat(concat('%' , ?1) , '%') or f.address like concat(concat('%' , ?1) , '%')")
 	Collection<FixupTask> findByKeyword(String keyword);

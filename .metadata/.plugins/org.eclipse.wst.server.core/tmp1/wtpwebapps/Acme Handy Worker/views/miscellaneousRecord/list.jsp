@@ -39,23 +39,19 @@
 		<spring:message code="miscellaneousRecord.title"
 			var="title"></spring:message>
 		<display:column property="title"
-			title="${title}" sortable="true" />
+			title="${title}" sortable="false" />
 
 		<spring:message code="miscellaneousRecord.attachment" var="attachment"></spring:message>
-		<display:column property="attachment" title="${attachment}" sortable="true" />
+		<display:column property="attachment" title="${attachment}" sortable="false" />
 
 		<spring:message code="miscellaneousRecord.comments" var="comments"></spring:message>
-		<display:column property="comments" title="${comments}" sortable="true" />
+		<display:column property="comments" title="${comments}" sortable="false" />
 
 
 	</security:authorize>
 </display:table>
 
 
- <%--  Boton de creacion --%>
- 
-
-<%--  Boton de ATRAS --%>
 <security:authorize access="hasRole('HANDYWORKER')">
 
 	<input type="button" name="back"

@@ -36,11 +36,6 @@
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="/resources/demos/style.css">
 
-<!-- ------------------------------PARA FECHAS------------------------------------------------ -->
-<!-- Hay que crear uno por cada input de fecha: datepicker1,datepicker2.... -->
-<!-- LUEGO HAY QUE PONER EN EL form:imput id="datepicker1"..... -->
-
-
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
@@ -52,8 +47,6 @@
 		$("#datepicker2").datepicker({dateFormat: 'dd/mm/yy'});
 	});
 </script>
-
-	<!-- ------------------------------------------------------------------------------------------------ -->
 
 	<security:authentication property="principal.username" var="username" />
 	<jstl:if
@@ -128,9 +121,6 @@
 				<br />
 
 
-
-
-
 				<form:label path="category">
 					<b><spring:message code="fixupTask.category"></spring:message>:</b>
 				</form:label>
@@ -155,12 +145,7 @@
 				<form:errors cssClass="error" path="category" />
 				<br />
 
-
-
-
-				<!--  Botones -->
-
-				<input type="submit" name="save"
+		<input type="submit" name="save"
 					value="<spring:message code="fixupTask.save"></spring:message>" />
 				<spring:message code="fixupTask.cancel" var="cancel"></spring:message>
 				<input type="button" name="cancel" value="${cancel}"

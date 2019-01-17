@@ -43,8 +43,7 @@
 			
 
 			<fieldset>
-				<!-------------------Form ------------------------------------>
-
+			
 				<div>
 					<form:label path="maximumPrice">
 						<spring:message code="fixupTask.maximumPrice"></spring:message>
@@ -93,18 +92,12 @@
 
 			</fieldset>
 
-	
-	<!--  Botones -->
-	
 		<input type="submit" name="save" value="<spring:message code="fixupTask.save"></spring:message>" />	
 		<input type="button" name="cancel" value="${cancel}" onclick="javascript:relativeRedir('fixupTask/list.do')" />	
 
 		</form:form>
 
 	</div>
-
-
-
 
 
 </security:authorize>

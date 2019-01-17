@@ -87,7 +87,9 @@ public class ActorService {
 		return result;
 	}
 
-	public Collection<Actor> findAllExceptMe(final Actor a) {
+	// Other methods
+
+	public Collection<Actor> findAllExceptCurrent(final Actor a) {
 		Collection<Actor> result;
 		result = this.actorRepository.findAll();
 		result.remove(a);
@@ -95,8 +97,6 @@ public class ActorService {
 
 		return result;
 	}
-
-	// Other methods
 
 	public Actor findOneByUserAccount(final UserAccount userAccount) {
 		return this.actorRepository.findOneByUserAccount(userAccount.getId());
@@ -120,7 +120,7 @@ public class ActorService {
 	}
 
 	//List of suspicious actors
-	public Collection<Actor> suspiciousActors() {
+	public Collection<Actor> getSuspiciousActors() {
 		final Collection<Actor> res = new ArrayList<Actor>();
 		for (final Actor a : this.findAll())
 			if (a.getSuspicious())
@@ -253,7 +253,7 @@ public class ActorService {
 		return res;
 	}
 
-	public boolean containsSpam(final String s) {
+	public boolean containsSpamWord(final String s) {
 		boolean res = false;
 		for (final String spamWord : this.settingsService.findSettings().getSpamWords())
 			if (s.contains(spamWord)) {
@@ -269,20 +269,20 @@ public class ActorService {
 		this.serviceUtils.checkId(a.getId());
 		final Actor actor = this.actorRepository.findOne(a.getId());
 		Assert.notNull(actor);
-		res = this.containsSpam(actor.getAddress()) || this.containsSpam(actor.getEmail()) || this.containsSpam(actor.getMiddleName()) || this.containsSpam(actor.getName()) || this.containsSpam(actor.getPhone()) || this.containsSpam(actor.getPhoto())
-			|| this.containsSpam(actor.getSurname());
+		res = this.containsSpamWord(actor.getAddress()) || this.containsSpamWord(actor.getEmail()) || this.containsSpamWord(actor.getMiddleName()) || this.containsSpamWord(actor.getName()) || this.containsSpamWord(actor.getPhone())
+			|| this.containsSpamWord(actor.getPhoto()) || this.containsSpamWord(actor.getSurname());
 		if (!res)
 			for (final Folder f : this.folderService.findAllByActor(actor)) {
-				res = this.containsSpam(f.getName());
+				res = this.containsSpamWord(f.getName());
 				if (res)
 					break;
 			}
 		if (!res)
 			for (final Message m : this.messageService.findSendedMessages(actor)) {
-				res = this.containsSpam(m.getBody()) || this.containsSpam(m.getPriority()) || this.containsSpam(m.getSubject());
+				res = this.containsSpamWord(m.getBody()) || this.containsSpamWord(m.getPriority()) || this.containsSpamWord(m.getSubject());
 				if (!res)
 					for (final String tag : m.getTags()) {
-						res = this.containsSpam(tag);
+						res = this.containsSpamWord(tag);
 						if (res)
 							break;
 					}
@@ -291,12 +291,12 @@ public class ActorService {
 			}
 		if (!res)
 			for (final SocialProfile sp : this.socialProfileService.findAllByActor(actor)) {
-				res = this.containsSpam(sp.getNetworkName()) || this.containsSpam(sp.getNick()) || this.containsSpam(sp.getProfile());
+				res = this.containsSpamWord(sp.getNetworkName()) || this.containsSpamWord(sp.getNick()) || this.containsSpamWord(sp.getProfile());
 				if (res)
 					break;
 			}
 		if (!res)
-			res = this.containsSpam(actor.getUserAccount().getUsername());
+			res = this.containsSpamWord(actor.getUserAccount().getUsername());
 		if (!res)
 			if (actor instanceof Customer)
 				res = res || this.customerService.isSuspicious((Customer) actor);

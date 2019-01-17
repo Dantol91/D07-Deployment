@@ -35,8 +35,7 @@
 			
 
 			<fieldset>
-				<!-------------------Form ------------------------------------>
-
+	
 				<div>
 					<form:label path="comments">
 						<spring:message code="note.comments"></spring:message>
@@ -63,12 +62,8 @@
 
 	</div>
 	
-	<!--  Botones -->
-	
+		
 		<input type="submit" name="save" value="<spring:message code="note.save"></spring:message>" />	
 		<input type="button" name="cancel" value="${cancel}" onclick="javascript:relativeRedir('note/display.do')" />	
-
-
-
 
 </security:authorize>

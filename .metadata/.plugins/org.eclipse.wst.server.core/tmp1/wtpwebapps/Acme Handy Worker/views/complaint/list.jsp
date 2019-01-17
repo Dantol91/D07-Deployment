@@ -48,11 +48,7 @@
 		<spring:message code="complaint.description" var="complaintDescription"></spring:message>
 		<display:column property="description" title="${complaintDescription}" sortable="true" />
 		
-
-
-<%-- 		<spring:message code="complaint.customer" var="complaintCustomer"></spring:message>
-		<display:column property="customer" title="${complaintCustomer}" sortable="true" /> --%>
-		
+	
 		<spring:message code="complaint.referee" var="complaintReferee"></spring:message>
 		<display:column property="referee.name" title="${complaintReferee}" sortable="true" />
 		

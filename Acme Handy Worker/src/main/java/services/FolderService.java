@@ -55,7 +55,7 @@ public class FolderService {
 		Assert.notNull(actor);
 		Assert.isTrue(actor.getId() > 0);
 		Assert.notNull(this.actorService.findOne(actor.getId()));
-		return this.repository.findFoldersByActor(actor.getId());
+		return this.repository.getFoldersByActor(actor.getId());
 	}
 
 	public Folder create(final Actor a) {
@@ -98,7 +98,7 @@ public class FolderService {
 		Assert.notNull(actor);
 		Assert.isTrue(actor.getId() > 0);
 		Assert.notNull(this.actorService.findOne(actor.getId()));
-		return this.repository.findFolderByActorAndName(actor.getId(), name);
+		return this.repository.getFolderByActorAndName(actor.getId(), name);
 	}
 
 	public List<Folder> createSystemFolders(final Actor actor) {
@@ -129,7 +129,7 @@ public class FolderService {
 		Assert.notNull(parent);
 		Assert.isTrue(parent.getId() > 0);
 		Assert.notNull(this.repository.findOne(parent.getId()));
-		return this.repository.findByParentId(parent.getId());
+		return this.repository.getByParentId(parent.getId());
 	}
 
 	public Collection<Folder> findByActorAndParent(final Actor actor, final Folder parent) {

@@ -125,7 +125,7 @@ public class ReportService {
 
 	public Map<String, Double> refeeReportStats() {
 		this.serviceUtils.checkAuthority(Authority.ADMIN);
-		final Double[] statistics = this.repository.refeeReportStats();
+		final Double[] statistics = this.repository.getRefeeReportStats();
 		final Map<String, Double> res = new HashMap<>();
 		res.put("MIN", statistics[0]);
 		res.put("MAX", statistics[1]);

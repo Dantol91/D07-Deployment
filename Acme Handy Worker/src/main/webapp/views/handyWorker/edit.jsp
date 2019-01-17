@@ -31,11 +31,6 @@
 		<form:hidden path="score"/>
 		
 
-
-		
-
-
-
 		<form:label path="name">
 			<spring:message code="handyWorker.name" />
 		</form:label>
@@ -92,9 +87,6 @@
 		<form:input path="make" />
 		<form:errors cssClass="error" path="make" />
 		<br />
-
-
-		<!--  Botones -->
 
 		<input type="submit" name="save"
 			value="<spring:message code="handyWorker.save"></spring:message>" />

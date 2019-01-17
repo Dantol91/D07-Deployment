@@ -24,20 +24,15 @@
 	requestURI="professionalRecord/handyWorker/list.do" pagesize="5"
 	class="displaytag">
 
-	<%--  Primero compruebo que es un handyWorker --%>
-	<security:authorize access="hasRole('HANDYWORKER')">
+		<security:authorize access="hasRole('HANDYWORKER')">
 
-
-		<%--  La columna que va a la vista edit de las professionalRecord --%>
-		<display:column>
+	<display:column>
 			<a
 				href="professionalRecord/handyWorker/edit.do?professionalRecordId=${professionalRecord.id}"><spring:message
 					code="professionalRecord.edit"></spring:message></a>
 		</display:column>
 
-
-		<%--  La columna que va a la vista display de las professionalRecord --%>
-		<display:column>
+	<display:column>
 			<a
 				href="professionalRecord/handyWorker/display.do?professionalRecordId=${professionalRecord.id}"><spring:message
 					code="professionalRecord.display"></spring:message></a>
@@ -46,38 +41,31 @@
 		<spring:message code="professionalRecord.company"
 			var="company"></spring:message>
 		<display:column property="company"
-			title="${company}" sortable="true" />
+			title="${company}" sortable="false" />
 
 		<spring:message code="professionalRecord.start" var="start"></spring:message>
-		<display:column property="start" title="${start}" sortable="true" />
+		<display:column property="start" title="${start}" sortable="false" />
 
 		<spring:message code="professionalRecord.end" var="end"></spring:message>
-		<display:column property="end" title="${end}" sortable="true" />
+		<display:column property="end" title="${end}" sortable="false" />
 
 
 		<spring:message code="professionalRecord.role" var="role"></spring:message>
 		<display:column property="role" title="${role}"
-			sortable="true" />
+			sortable="false" />
 
 		<spring:message code="professionalRecord.attachment" var="attachment"></spring:message>
 		<display:column property="attachment" title="${attachment}"
-			sortable="true" />
+			sortable="false" />
 
 		<spring:message code="professionalRecord.comments" var="comments"></spring:message>
 		<display:column property="comments" title="${comments}"
-			sortable="true" />
+			sortable="false" />
 
 
-
-
-
-
-
-	</security:authorize>
+</security:authorize>
 </display:table>
 
-
-<%--  Boton de creacion --%>
 <security:authorize access="hasRole('HANDYWORKER')">
 
 	<input type="button" name="create"
@@ -85,7 +73,6 @@
 		onclick="javascript:relativeRedir('professionalRecord/handyWorker/create.do')" />
 </security:authorize>
 
-<%--  Boton de ATRAS --%>
 <security:authorize access="hasRole('HANDYWORKER')">
 
 	<input type="button" name="back"

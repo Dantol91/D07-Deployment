@@ -146,12 +146,3 @@
 	value="<spring:message code="fixupTask.cancel"></spring:message>"
 	onclick="javascript:relativeRedir('fixupTask/endorsable/list.do')" />
 
-
-
-
-
-
-
-
-
-

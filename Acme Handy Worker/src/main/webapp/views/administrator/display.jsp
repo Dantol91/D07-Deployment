@@ -55,9 +55,3 @@
 	<input type="button" name="edit" value="${edit}"
 		onclick="javascript:relativeRedir('administrator/edit.do?administratorId=${administrator.id}')" />
 </jstl:if>
-
-
-<%-- </security:authorize> --%>
-
-
-

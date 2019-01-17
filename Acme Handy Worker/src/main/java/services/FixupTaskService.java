@@ -115,7 +115,7 @@ public class FixupTaskService {
 	//Other methods
 
 	public Map<String, Double> appsStats() {
-		final Double[] statistics = this.fixupTaskRepository.appsStats();
+		final Double[] statistics = this.fixupTaskRepository.getApplicationsStats();
 		final Map<String, Double> res = new HashMap<>();
 
 		res.put("MIN", statistics[0]);
@@ -126,7 +126,7 @@ public class FixupTaskService {
 	}
 
 	public Map<String, Double> maxFixupStaskStats() {
-		final Double[] statistics = this.fixupTaskRepository.maxFixupStaskStats();
+		final Double[] statistics = this.fixupTaskRepository.getApplicationsMaxFixupStaskStats();
 		final Map<String, Double> res = new HashMap<>();
 
 		res.put("MIN", statistics[0]);
@@ -138,7 +138,7 @@ public class FixupTaskService {
 	}
 
 	public Map<String, Double> getRatioFixupTasksWithComplaints() {
-		final Double ratio = this.fixupTaskRepository.ratiofixupComplaint();
+		final Double ratio = this.fixupTaskRepository.getRatiofixupComplaint();
 		final Map<String, Double> res = new HashMap<>();
 
 		res.put("Ratio", ratio);
@@ -147,7 +147,7 @@ public class FixupTaskService {
 	}
 
 	public Map<String, Double> fixupComplaintsStats() {
-		final Double[] statistics = this.fixupTaskRepository.fixupComplaintsStats();
+		final Double[] statistics = this.fixupTaskRepository.getFixupComplaintsStats();
 		final Map<String, Double> res = new HashMap<>();
 		res.put("MIN", statistics[0]);
 		res.put("MAX", statistics[1]);
@@ -180,17 +180,17 @@ public class FixupTaskService {
 	}
 
 	public Collection<FixupTask> findAcceptedFixupTasks() {
-		return this.fixupTaskRepository.findAcceptedFixupTasks();
+		return this.fixupTaskRepository.getAcceptedFixupTasks();
 	}
 
 	public Collection<FixupTask> findAcceptedFixupTasksByHandyWorker(final HandyWorker h) {
 		final HandyWorker handyWorker = (HandyWorker) this.serviceUtils.checkObject(h);
-		return this.fixupTaskRepository.findAcceptedFixupTasksByHandyWorker(handyWorker.getId());
+		return this.fixupTaskRepository.getAcceptedFixupTasksByHandyWorker(handyWorker.getId());
 	}
 
 	public Collection<FixupTask> findFixupTasksNotAppliedByHandyWorker(final HandyWorker h) {
 		final HandyWorker handyWorker = (HandyWorker) this.serviceUtils.checkObject(h);
-		return this.fixupTaskRepository.findFixupTasksNotAppliedByHandyWorker(handyWorker.getId());
+		return this.fixupTaskRepository.getFixupTasksNotAppliedByHandyWorker(handyWorker.getId());
 	}
 
 	public Collection<FixupTask> search(final String keyword, final Category category, final Warranty warranty, final Double minPrice, final Double maxPrice, final Date minDate, final Date maxDate) {

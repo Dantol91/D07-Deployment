@@ -24,19 +24,14 @@
 	requestURI="educationRecord/handyWorker/list.do" pagesize="5"
 	class="displaytag">
 
-	<%--  Primero compruebo que es un handyWorker --%>
 	<security:authorize access="hasRole('HANDYWORKER')">
 
-
-		<%--  La columna que va a la vista edit de las educationRecord --%>
 		<display:column>
 			<a
 				href="educationRecord/handyWorker/edit.do?educationRecordId=${educationRecord.id}"><spring:message
 					code="educationRecord.edit"></spring:message></a>
 		</display:column>
 
-
-		<%--  La columna que va a la vista display de las educationRecord --%>
 		<display:column>
 			<a
 				href="educationRecord/handyWorker/display.do?educationRecordId=${educationRecord.id}"><spring:message
@@ -46,38 +41,30 @@
 		<spring:message code="educationRecord.diplomaTitle"
 			var="educationRecordDiplomaTitle"></spring:message>
 		<display:column property="diplomaTitle"
-			title="${educationRecordDiplomaTitle}" sortable="true" />
+			title="${educationRecordDiplomaTitle}" sortable="false" />
 
 		<spring:message code="educationRecord.startDate" var="startDate"></spring:message>
-		<display:column property="start" title="${startDate}" sortable="true" />
+		<display:column property="start" title="${startDate}" sortable="false" />
 
 		<spring:message code="educationRecord.endDate" var="endDate"></spring:message>
-		<display:column property="end" title="${endDate}" sortable="true" />
+		<display:column property="end" title="${endDate}" sortable="false" />
 
 
 		<spring:message code="educationRecord.institution" var="institution"></spring:message>
 		<display:column property="institution" title="${institution}"
-			sortable="true" />
+			sortable="false" />
 
 		<spring:message code="educationRecord.attachment" var="attachment"></spring:message>
 		<display:column property="attachment" title="${attachment}"
-			sortable="true" />
+			sortable="false" />
 
 		<spring:message code="educationRecord.comments" var="comments"></spring:message>
 		<display:column property="comments" title="${comments}"
-			sortable="true" />
-
-
-
-
-
-
+			sortable="false" />
 
 	</security:authorize>
 </display:table>
 
-
-<%--  Boton de creacion --%>
 <security:authorize access="hasRole('HANDYWORKER')">
 
 	<input type="button" name="create"
@@ -85,12 +72,9 @@
 		onclick="javascript:relativeRedir('educationRecord/handyWorker/create.do')" />
 </security:authorize>
 
-<%--  Boton de ATRAS --%>
 <security:authorize access="hasRole('HANDYWORKER')">
 
 	<input type="button" name="back"
 		value="<spring:message code="educationRecord.back"></spring:message>"
 		onclick="javascript:relativeRedir('curriculum/handyWorker/display.do')" />
 </security:authorize>
-
-

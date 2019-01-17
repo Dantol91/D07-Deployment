@@ -100,23 +100,6 @@ public class WorkplanController extends AbstractController {
 
 		return result;
 	}
-	//	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
-	//	public ModelAndView save(@Valid final WorkPlan workplan, final BindingResult binding) {
-	//		ModelAndView res;
-	//
-	//		if (binding.hasErrors())
-	//			res = this.createEditModelAndView(workplan);
-	//		else
-	//			try {
-	//				this.handyWorkerService.save(workplan);
-	//				res = new ModelAndView("redirect:list.do");
-	//			} catch (final Throwable oops) {
-	//				res = this.createEditModelAndView(workplan, "workplan.commit.error");
-	//
-	//			}
-	//		return res;
-	//	}
-	//display
 
 	@RequestMapping(value = "/display", method = RequestMethod.GET)
 	public ModelAndView display(@RequestParam final int workplanId) {
@@ -184,44 +167,5 @@ public class WorkplanController extends AbstractController {
 
 		return result;
 	}
-
-	//	private ModelAndView createEditModelAndView(final WorkPlan workplan, final String string) {
-	//		final Date date = new SimpleDateFormat("MM/dd/yyyy").getCalendar().getTime();
-	//		ModelAndView res;
-	//		final WorkPlan workplan;
-	//		final Trip trip;
-	//		Date momentOfCreate = date;
-	//		String title;
-	//		String description;
-	//		Collection<URL> attachments;
-	//
-	//		if (workplan.getWorkPlan() == null) {
-	//
-	//			momentOfCreate = null;
-	//			title = null;
-	//			description = null;
-	//			attachments = null;
-	//
-	//			res = new ModelAndView("workplan/edit");
-	//
-	//		} else {
-	//			momentOfCreate = workplan.getMomentOfCreate();
-	//			title = workplan.getTitle();
-	//			description = workplan.getDescription();
-	//			attachments = workplan.getAttachments();
-	//
-	//			res = new ModelAndView("workplan/edit");
-	//		}
-	//		res.addObject("workplan", workplan);
-
-	//		res.addObject("momentOfCreate", momentOfCreate);
-	//		res.addObject("title", title);
-	//		res.addObject("description", description);
-	//		res.addObject("attachments", attachments);
-	//
-	//		res.addObject("message", string);
-
-	//		return res;
-	//	}
 
 }

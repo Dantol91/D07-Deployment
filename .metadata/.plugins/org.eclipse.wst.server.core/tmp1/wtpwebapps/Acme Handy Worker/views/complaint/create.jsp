@@ -18,12 +18,6 @@
 	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
-
-
-<!-- ------------------------------PARA FECHAS------------------------------------------------ -->
-<!-- Hay que crear uno por cada input de fecha: datepicker1,datepicker2.... -->
-<!-- LUEGO HAY QUE PONER EN EL form:imput id="datepicker1"..... -->
-
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
@@ -74,10 +68,6 @@
 
 				
 				<br>
-				
-				
-	
-	<!--  Los botones de crear y cancelar -->
 
 		<input type="submit" name="save" value="<spring:message code="complaint.save"></spring:message>" />
 			

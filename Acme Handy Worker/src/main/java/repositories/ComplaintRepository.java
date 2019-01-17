@@ -13,11 +13,11 @@ import domain.Complaint;
 public interface ComplaintRepository extends JpaRepository<Complaint, Integer> {
 
 	@Query("select c from Complaint c where c.referee.id = ?1")
-	Collection<Complaint> SearchComplaintByReferee(Integer refereeId);
+	Collection<Complaint> getComplaintByReferee(Integer refereeId);
 
 	@Query("select c from Complaint c where c.referee IS NULL")
-	Collection<Complaint> SearchComplaintWithoutReferee();
-	
+	Collection<Complaint> getComplaintWithoutReferee();
+
 	@Query("select c from Complaint c where c.fixuptask.id = ?1")
 	Collection<Complaint> findByFixupTaskId(int fixupTaskId);
 }

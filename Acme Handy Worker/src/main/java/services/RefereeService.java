@@ -121,12 +121,12 @@ public class RefereeService {
 		Assert.notNull(referee);
 		res = this.actorService.isSuspicious(referee);
 		if (!res)
-			for (final Complaint c : this.complaintService.findAllComplaintsByReferee(referee)) {
-				res = this.actorService.containsSpam(c.getDescription()) || this.actorService.containsSpam(this.reportService.findByComplaint(c).getDescription());
+			for (final Complaint c : this.complaintService.getComplaintByReferee(referee)) {
+				res = this.actorService.containsSpamWord(c.getDescription()) || this.actorService.containsSpamWord(this.reportService.findByComplaint(c).getDescription());
 				if (!res)
 					for (final Note n : this.noteService.findAllByReport(this.reportService.findByComplaint(c))) {
 						for (final String comment : n.getComments()) {
-							res = this.actorService.containsSpam(comment);
+							res = this.actorService.containsSpamWord(comment);
 							if (res)
 								break;
 						}
@@ -135,7 +135,7 @@ public class RefereeService {
 					}
 				if (!res)
 					for (final Url u : c.getAttachments()) {
-						res = this.actorService.containsSpam(u.getUrl());
+						res = this.actorService.containsSpamWord(u.getUrl());
 						if (res)
 							break;
 					}

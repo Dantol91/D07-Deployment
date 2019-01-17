@@ -62,13 +62,7 @@
 			<form:errors cssClass="error" path="workerComments" />
 			<br />
 
-			<%-- 			<security:authorize access="hasRole('CUSTOMER')">
 			
-			<form:label path="customerComments"> <spring:message code="application.customerComments" /></form:label>
-			<form:input path="customerComments" /><form:errors cssClass="error" path="customerComments" /><br />
-			</security:authorize>  --%>
-
-
 			<jstl:if test="${!fromFixupTask }">
 			<form:label path="fixupTask">
 				<spring:message code="application.fixupTask"></spring:message>
@@ -97,8 +91,6 @@
 			<br />
 			</jstl:if>
 
-
-			<!--  Los botones de crear y cancelar -->
 			<br />
 
 			<input type="submit" name="save"

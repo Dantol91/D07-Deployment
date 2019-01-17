@@ -90,30 +90,6 @@
 		</form:form>
 	</div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </security:authorize>
 
 
@@ -150,10 +126,7 @@
 				onclick="javascript:relativeRedir('personalRecord/edit.do?personalRecordId=${curriculum.personalRecord.id}')" />
 		</fieldset>
 
-
-
-
-		<fieldset>
+	<fieldset>
 			<legend>
 				<spring:message code="curriculum.EducationRecords"></spring:message>
 			</legend>
@@ -185,10 +158,6 @@
 			<input type="button" name="edit" value="${edit}"
 				onclick="javascript:relativeRedir('personalRecord/edit.do?personalRecordId=${curriculum.personalRecord.id}')" />
 		</fieldset>
-
-
-
-
 
 	</jstl:if>
 	<security:authentication property="principal.username" />

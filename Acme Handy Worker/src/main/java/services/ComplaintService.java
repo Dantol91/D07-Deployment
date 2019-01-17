@@ -62,26 +62,31 @@ public class ComplaintService {
 
 	//Other business methods
 
-	public Collection<Complaint> findAllComplaintsByReferee(final Referee r) {
-		return this.complaintRepository.SearchComplaintByReferee(r.getId());
+	public Collection<Complaint> getComplaintByReferee(final Referee r) {
+
+		return this.complaintRepository.getComplaintByReferee(r.getId());
 	}
 
-	public Collection<Complaint> findAllComplaintsWithoutReferee() {
-		return this.complaintRepository.SearchComplaintWithoutReferee();
+	public Collection<Complaint> getComplaintWithoutReferee() {
+
+		return this.complaintRepository.getComplaintWithoutReferee();
 	}
 
 	public Collection<Complaint> findByFixupTask(final FixupTask fixupTask) {
+
 		Assert.notNull(fixupTask);
 		Assert.isTrue(fixupTask.getId() > 0);
 		Assert.notNull(this.fixupTaskService.findOne(fixupTask.getId()));
 		return this.complaintRepository.findByFixupTaskId(fixupTask.getId());
 	}
 
-	public Collection<Complaint> findAll(final FixupTask dependency) {
+	public Collection<Complaint> findAllAux(final FixupTask dependency) {
+
 		return this.findByFixupTask(dependency);
 	}
 
-	public Complaint create(final FixupTask dependency) {
+	public Complaint createAux(final FixupTask dependency) {
+
 		Assert.notNull(dependency);
 		Assert.isTrue(dependency.getId() > 0);
 		Assert.notNull(this.fixupTaskService.findOne(dependency.getId()));
@@ -90,7 +95,8 @@ public class ComplaintService {
 		return res;
 	}
 
-	public void delete(final Complaint object) {
+	public void deleteAux(final Complaint object) {
+
 		throw new IllegalArgumentException("Unallowed method");
 	}
 }

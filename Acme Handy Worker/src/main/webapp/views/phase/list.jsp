@@ -20,7 +20,6 @@
 
 <display:table name="phases" id="phase" requestURI="phase/handyWorker/list.do" pagesize="5" class="displaytag">
 
-	<%--  Primero compruebo que es un admin --%>
 	<security:authorize access="hasRole('HANDYWORKER')">
 
 
@@ -41,8 +40,6 @@
 		
 		<spring:message code="phase.end" var="phaseEnd"></spring:message>
 		<display:column property="end" title="${phaseEnd}" sortable="false" />
-		
-
 
 
 	</security:authorize>

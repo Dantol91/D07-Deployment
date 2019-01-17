@@ -88,6 +88,8 @@ public class CurriculumService {
 
 	}
 
+	// Other Business Methods
+
 	public Curriculum findByHandyWorker(final HandyWorker h) {
 		Assert.notNull(h);
 		Assert.isTrue(h.getId() > 0);
@@ -104,7 +106,7 @@ public class CurriculumService {
 		return res;
 	}
 
-	public Curriculum create(final Actor a) {
+	public Curriculum createAux(final Actor a) {
 		Assert.notNull(a);
 		Assert.isTrue(a.getId() > 0);
 		Assert.notNull(this.handyWorkerService.findOne(a.getId()));

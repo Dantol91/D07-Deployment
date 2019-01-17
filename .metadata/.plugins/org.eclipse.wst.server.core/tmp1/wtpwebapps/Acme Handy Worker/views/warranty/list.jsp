@@ -36,7 +36,7 @@
 		</display:column>		
 	</security:authorize>
 	
-	<!-- Attributos -->
+	<!-- Attributes -->
 	
 	<spring:message code="warranty.title" var="title" />
 	<display:column property="title" title="${title}" sortable="false" />
@@ -53,7 +53,6 @@
 
 </display:table>
 
-<!-- Botones  -->
 
 <security:authorize access="hasRole('ADMIN')">
 	<div>

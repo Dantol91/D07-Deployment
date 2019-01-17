@@ -53,8 +53,6 @@
 
 </display:table>
 
-<!-- Botones  -->
-
 <security:authorize access="hasRole('REFEREE')">
 	<div>
 		<a href="note/referee/create.do"> <spring:message

@@ -19,8 +19,6 @@
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
 
-
-
 <div>
 	<form:form action="none/handyWorker/create.do" method="post"
 		id="formCreate" name="formCreate" modelAttribute="handyWorker">
@@ -82,18 +80,7 @@
 		<form:input path="address" />
 		<form:errors cssClass="error" path="address" />
 		<br />
-		
-		<%-- <form:label path="make">
-			<spring:message code="handyWorker.make"></spring:message>
-		</form:label>
-		<form:input path="make" id="make" name="make" />
-		<form:errors cssClass="error" path="make" />
-		<br /> --%>
-
-
-
-		<!--  Botones -->
-
+	
 		<input type="submit" name="save"
 			value="<spring:message code="handyWorker.save"></spring:message>" />
 
@@ -103,33 +90,5 @@
 
 	</form:form>
 
-
-
-
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

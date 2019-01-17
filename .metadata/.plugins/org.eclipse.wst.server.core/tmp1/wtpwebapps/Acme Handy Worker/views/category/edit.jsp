@@ -18,10 +18,6 @@
 	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
-<%-- <p>
-	<spring:message code="category.edit" />
-</p> --%>
-
 <%
 
 Cookie[] cookies = request.getCookies();
@@ -36,18 +32,15 @@ String languageValue = languageCookie.getValue();
 
 %>
 
-<!--  Primero pongo la autoridad ya que solo un * maneja las categorias -->
 <security:authorize access="hasRole('ADMIN')">
 
 	<div>
 	<form:form action="category/administrator/edit.do" method="post" id="formCreate" name="formCreate" modelAttribute="category">
 
-	<!-- No me acuerdo exactamente para que hacia falta  -->
 			<form:hidden path="id" />
 			<form:hidden path="version" />
 
 
-<!-- El atributo nombre -->
 			<form:label path="nameEnglish"><spring:message code="category.nameEnglish"></spring:message></form:label>
 			<form:input path="nameEnglish" id="nameEnglish" name="nameEnglish" />
 			<form:errors cssClass="error" path="nameEnglish" />
@@ -58,7 +51,6 @@ String languageValue = languageCookie.getValue();
 			<form:errors cssClass="error" path="nameSpanish" />
 			<br>
 			
-<!--  Categoria padre (desplegable) -->
 		<form:label path="parentCategory"> <spring:message code="category.parentCategory"></spring:message></form:label>
 		
 		<form:select id="parentCategory" path="parentCategory">
@@ -72,9 +64,6 @@ String languageValue = languageCookie.getValue();
 		<form:errors cssClass="error" path="parentCategory" />
 		<br />
 		
-		
-		
-		<!--  Los botones de crear y cancelar -->
 
 		<input type="submit" name="save" value="<spring:message code="category.save"></spring:message>" />
 			
@@ -86,12 +75,10 @@ String languageValue = languageCookie.getValue();
 	</jstl:if>	
 		
 		</form:form>
-		
-		
+
 
 	</div>
-
-		
+	
 
 </security:authorize>
 

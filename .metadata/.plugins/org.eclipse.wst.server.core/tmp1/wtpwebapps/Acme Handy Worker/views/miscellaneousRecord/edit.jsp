@@ -32,7 +32,7 @@
 
 
 			<fieldset>
-				<!-------------------Form ------------------------------------>
+			
 				<div>
 					<form:label path="title">
 						<spring:message code="miscellaneousRecord.title"></spring:message>
@@ -64,9 +64,6 @@
 
 			</fieldset>
 
-
-			<!--  Los botones de crear y cancelar -->
-
 			<input type="submit" name="save"
 				value="<spring:message code="miscellaneousRecord.save"></spring:message>" />
 
@@ -81,17 +78,8 @@
 					onclick="return confirm('<spring:message code="miscellaneousRecord.confirm.delete" />')" />&nbsp;
 	</jstl:if>
 
-
-
-
-
-
-		</form:form>
+	</form:form>
 
 	</div>
-
-
-
-
 
 </security:authorize>

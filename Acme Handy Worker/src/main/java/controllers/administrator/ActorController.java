@@ -66,7 +66,7 @@ public class ActorController extends AbstractController {
 	protected ModelAndView createEditModelAndView2(final Actor admin, final String messageCode) {
 		final ModelAndView result;
 
-		final Collection<Actor> allExceptMe = this.actorService.findAllExceptMe(admin);
+		final Collection<Actor> allExceptMe = this.actorService.findAllExceptCurrent(admin);
 		result = new ModelAndView("actor/list");
 		result.addObject("administrator", admin);
 		result.addObject("actors", allExceptMe);

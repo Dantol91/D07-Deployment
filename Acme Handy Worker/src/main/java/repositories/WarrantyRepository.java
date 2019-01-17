@@ -12,6 +12,6 @@ import domain.Warranty;
 public interface WarrantyRepository extends GenericRepository<Warranty> {
 
 	@Query("select w from Warranty w where w.draft = false")
-	Collection<Warranty> findWarrantyNotDraft();
+	Collection<Warranty> getWarrantyNotDraft();
 
 }

@@ -35,8 +35,7 @@
 			
 
 			<fieldset>
-				<!-------------------Form ------------------------------------>
-
+		
 				<div>
 					<form:label path="name">
 						<spring:message code="folder.name"></spring:message>
@@ -45,9 +44,7 @@
 					<form:errors cssClass="error" path="name" />
 					<br />
 				</div>
-				
-				
-
+	
 			</fieldset>
 
 
@@ -56,8 +53,7 @@
 
 	</div>
 	
-	<!--  Botones -->
-	
+
 		<input type="submit" name="save" value="<spring:message code="folder.save"></spring:message>" />	
 		<input type="button" name="cancel" value="${cancel}" onclick="javascript:relativeRedir('folder/display.do')" />	
 

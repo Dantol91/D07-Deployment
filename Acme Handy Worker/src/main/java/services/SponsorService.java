@@ -128,7 +128,7 @@ public class SponsorService {
 	}
 
 	public Sponsor findSponsorById(final int id) {
-		return this.sponsorRepository.findSponsorById(id);
+		return this.sponsorRepository.getSponsorById(id);
 	}
 
 	public void flush() {

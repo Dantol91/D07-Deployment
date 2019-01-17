@@ -94,17 +94,17 @@ public class AdministratorController extends AbstractController {
 		final Double avgMaximumPriceOfFixupTasks = this.fixupTaskService.maxFixupStaskStats().get("AVG");
 		final Double stdMaximumPriceOfFixupTasks = this.fixupTaskService.maxFixupStaskStats().get("STD");
 
-		final Double maxPriceOfApplications = this.applicationService.applicationPriceStats().get("MAX");
-		final Double minPriceOfApplications = this.applicationService.applicationPriceStats().get("MIN");
-		final Double avgPriceOfApplications = this.applicationService.applicationPriceStats().get("AVG");
-		final Double stdPriceOfApplications = this.applicationService.applicationPriceStats().get("STD");
+		final Double maxPriceOfApplications = this.applicationService.getApplicationPriceStats().get("MAX");
+		final Double minPriceOfApplications = this.applicationService.getApplicationPriceStats().get("MIN");
+		final Double avgPriceOfApplications = this.applicationService.getApplicationPriceStats().get("AVG");
+		final Double stdPriceOfApplications = this.applicationService.getApplicationPriceStats().get("STD");
 
-		final Double ratioPendingApplications = this.applicationService.pendingRatio().get("Ratio");
-		final Double ratioAcceptedApplications = this.applicationService.acceptedRatio().get("Ratio");
-		final Double ratioRejectedApplications = this.applicationService.appsRejectedRatio().get("Ratio");
-		final Double ratioLateApplications = this.applicationService.lateApplicationsRatio();
+		final Double ratioPendingApplications = this.applicationService.getApplicationsPendingRatio().get("Ratio");
+		final Double ratioAcceptedApplications = this.applicationService.getApplicationsAcceptedRatio().get("Ratio");
+		final Double ratioRejectedApplications = this.applicationService.getApplicationsRejectedRatio().get("Ratio");
+		final Double ratioLateApplications = this.applicationService.getApplicationsPeriodElapsedRatio();
 
-		final Collection<Customer> customersMoreFixupTasksAverage = this.customerService.listCustomer10();
+		final Collection<Customer> customersMoreFixupTasksAverage = this.customerService.getCustomerMoreFixupTasks();
 		final Collection<HandyWorker> handyWorkersMoreFixupTasksAverage = this.handyWorkerService.listHandyWorkerApplication();
 
 		final Double maxComplaintsPerFixupTask = this.fixupTaskService.fixupComplaintsStats().get("MAX");
@@ -119,7 +119,7 @@ public class AdministratorController extends AbstractController {
 
 		final Double ratioFixupTasksWithComplaints = this.fixupTaskService.getRatioFixupTasksWithComplaints().get("Ratio");
 
-		final Collection<Customer> top3CustomersWithMoreComplaints = this.customerService.getTop3CustomerWithMoreComplaints();
+		final Collection<Customer> top3CustomersWithMoreComplaints = this.customerService.getTopThreeCustomerWithMoreComplaints();
 		final Collection<HandyWorker> top3HandyWorkersWithMoreComplaints = this.handyWorkerService.getTop3HandyWorkerWithMoreComplaints();
 
 		result.addObject("maxFixupTaskPerUser", maxFixupTaskPerUser);
@@ -262,7 +262,7 @@ public class AdministratorController extends AbstractController {
 		Actor a;
 		a = this.actorService.findOneByUserAccount(LoginService.getPrincipal());
 
-		actors = this.actorService.findAllExceptMe(a);
+		actors = this.actorService.findAllExceptCurrent(a);
 
 		result = new ModelAndView("actor/list");
 		result.addObject("requestURI", "administrator/list.do");

@@ -1,0 +1,101 @@
+# messages.properties
+#
+# Copyright (C) 2018 Universidad de Sevilla
+# 
+# The use of this project is hereby constrained to the conditions of the 
+# TDG Licence, a copy of which you may download from 
+# http://www.tdg-seville.info/License.html
+
+administrator.action.1	= This is the administrator's action 1
+administrator.action.2	= This is the administrator's action 2
+
+dashboard.fixuptaskStats= FixupTask Stats
+dashboard.fixuptaskMaxStats= FixupStats Stats per maximum prices on Fixuptasks
+dashboard.appsPerfixuptask= Stats of Applications per Fixuptasks
+dashboard.fixuptaskPriceStats= FixupStats stats  per Price 
+dashboard.ratioApplications = Ratios of Applications
+dashboard.ratioPending = Ratio of PENDING Applications
+dashboard.ratioAccepted = Ratio of Application ACCEPTED
+dashboard.ratioRejected = Ratio of Application REJECTED
+dashboard.ratioAppsElapsed= Ratio of Applications with Elapsed Date
+dashboard.customerMost =  Customers who have Published at least 10% more Fix-up tasks than the Average
+dashboard.handyWorkerMost =  Handy Workers who have Published at least 10% more fix-up tasks than the Average
+dashboard.fixuptaskComplainStats = Stats for Complaints per Fixuptask
+dashboard.ratioTaskComplaint = Ratio of Fixuptask with any Complaint 
+
+dashboard.FixStats     = Stats Fixuptask per User
+dashboard.FixStats.min = Minimun Fixuptask per User
+dashboard.FixStats.max = Maximun Fixuptask per User
+dashboard.FixStats.avg = Average Fixuptask per User
+dashboard.FixStats.stdev = Standard Deviation Fixuptask per User
+
+dashboard.AppsPrice= Applications Price Stats
+dashboard.AppsPrice.min= Minimum Applications Price
+dashboard.AppsPrice.max= Maximum Applications Price
+dashboard.AppsPrice.avg= Average applications Price
+dashboard.AppsPrice.stdev= Standard Deviation Applications Price
+
+dashboard.FixStatsMax.min = Minimum Price of Fixuptask
+dashboard.FixStatsMax.max = Maximum Price of Fixuptask
+dashboard.FixStatsMax.avg = Maximum Average Price of Fixuptask
+dashboard.FixStatsMax.stdev = Standard Deviation Maximum Price of Fixuptask
+
+dashboard.AppsFixStats.min= Minimum Number of Applications per Fix-up task
+dashboard.AppsFixStats.max= Maximum Number of Applications per Fix-up task
+dashboard.AppsFixStats.avg= Average Number of Applications per Fix-up task
+dashboard.AppsFixStats.stdev= Standard Deviation Number of Applications per Fix-up task
+
+dashboard.fixuptaskPriceStats.min = Minimum Price per FixupTask price
+dashboard.fixuptaskPriceStats.max = Maximum Price per FixupTask price
+dashboard.fixuptaskPriceStats.avg = Average Price per Fixuptask price
+dashboard.fixuptaskPriceStats.stdev = standard Deviation per Fixuptask price
+
+dashboard.appsPendingRatio= Ratio of Applications with Status PENDING
+dashboard.appsAcceptedRatio= Ratio of Applications with Status ACCEPTED
+dashboard.appsRejectedRatio = Ratio of Applications with Status REJECTED
+
+dashboard.customerMostFix = Customer with 10% more Fixuptask  than the Average
+dashboard.handyWorkerMostFix = HandyWorker with 10% more Fixuptask  than the Average
+
+dashboard.fixuptaskComplainStats.min=Minimum Complaints per Fixuptask
+dashboard.fixuptaskComplainStats.max=Maximum Complaints per Fixuptask
+dashboard.fixuptaskComplainStats.avg=Average Complaints per Fixuptask
+dashboard.fixuptaskComplainStats.stdev=Standard Deviation of Complaints per Fixuptask
+dashboard.appsRatioElapsed= Ratio of Elapsed Applications
+
+dashboard.fixRatioTaskComplaint= Ratio of Fixuptask with Any Complaint
+
+dashboard.topCustomersComplaint = Top 3 Customer with more Complaints
+dashboard.topHandyWorkerComplaint = Top 3 HandyWorker with more Complaints
+
+dashboard.notePerRefereeStats = Notes per referee stats
+dashboard.notePerRefereeStats.min = Minimum notes per referee stats
+dashboard.notePerRefereeStats.max = Maximum notes per referee stats
+dashboard.notePerRefereeStats.avg = Average notes per referee stats
+dashboard.notePerRefereeStats.stdev = Standard deviation notes per referee stats
+
+
+administrator.name =Admin name
+administrator.middleName= middle name
+administrator.surname= surname
+administrator.photo= photo
+administrator.email=email
+administrator.phone=phone
+administrator.address=address
+userAccount.username=username
+userAccount.password=password
+administrator.edit= Edit
+
+administrator.save=save
+administrator.cancel=cancel
+
+administrator.commit.error=Error
+
+
+administrator.useraccount = User Account
+administrator.useraccount.username = User Name
+administrator.useraccount.password = Password
+
+
+
+

@@ -19,7 +19,6 @@
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
 
-<!--  Primero pongo la autoridad ya que solo un admin maneja las categorias -->
 <security:authorize access="hasAnyRole('CUSTOMER' , 'HANDYWORKER')">
 
 	<div>
@@ -65,19 +64,9 @@
 			 </jstl:if>
 			<br />
 			
-			
-			
-			<%-- form:label path="fixupTask"> <spring:message code="application.fixupTask"></spring:message></form:label>
-			<form:select id="fixupTask" path="fixupTask">
-			<form:option value="${application.fixupTask}" label="-----"></form:option>
-			<form:options items="${allFixupTasks}" itemLabel="ticker" itemValue="id" />
-			</form:select>
-			<form:errors cssClass="error" path="fixupTask" />
-			<br /> --%>
+	
 		</security:authorize>
-			
-			
-		<%-- Status--%>
+
 		<security:authorize access="hasRole('CUSTOMER')">
 		
 			<form:hidden path="fixupTask" />
@@ -129,8 +118,7 @@
 			<form:input path="customerComments" /><form:errors cssClass="error" path="customerComments" /><br />
 		</security:authorize>  
 			
-			
-				<!--  Los botones de crear y cancelar -->
+	
 			<br />
 
 		<input type="submit" name="save" value="<spring:message code="application.save"></spring:message>" />	

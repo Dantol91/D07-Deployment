@@ -18,9 +18,6 @@
 	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
-
-
-<%-- Si esto da error creo que tambien se puede poner así: access="hasRole('ADMIN') OR hasRole('CUSTOMER')" --%>
 <security:authorize access="hasAnyRole('ADMIN', 'CUSTOMER','HANDYWORKER')">
 
 	<b><spring:message code="customer.name"></spring:message>:</b>
@@ -94,9 +91,6 @@
 		<display:column property="description" title="${description}"
 			sortable="true" />
 
-		
-		
-		
 	</display:table>
 	
 	
@@ -110,6 +104,3 @@
 </security:authorize>
 
 </security:authorize>
-
-
-

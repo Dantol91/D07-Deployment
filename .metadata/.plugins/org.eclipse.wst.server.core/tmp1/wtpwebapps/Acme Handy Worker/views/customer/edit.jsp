@@ -25,8 +25,6 @@
 	<jstl:if
 		test='${customer.userAccount.username == username || customer.id == 0}'>
 
-
-
 <div>
 	<form:form action="customer/edit.do" method="post" id="formCreate"
 		name="formCreate" modelAttribute="customer" >
@@ -36,32 +34,6 @@
 		<form:hidden path="suspicious" />
 		<form:hidden path="fixupTasks" />
 		<form:hidden path="score"/>
-		<%-- <form:hidden path="userAccount.authorities" /> --%>
-		
-		
-
-
-		<%-- <fieldset>
-			<legend>
-				<spring:message code="customer.useraccount" />
-			</legend>
-			<div>
-				<form:label path="userAccount.username">
-					<spring:message code="customer.useraccount.username" />
-				</form:label>
-				<form:input path="userAccount.username" />
-				<form:errors path="userAccount.username" cssClass="error" />
-			</div>
-
-			<div>
-				<form:label path="userAccount.password">
-					<spring:message code="customer.useraccount.password" />
-				</form:label>
-				<form:password path="userAccount.password" />
-				<form:errors path="userAccount.password" cssClass="error" />
-			</div>
-		</fieldset>  --%>
-
 
 
 		<form:label path="name">
@@ -114,9 +86,6 @@
 		<form:errors cssClass="error" path="address" />
 		<br />
 	
-		
-
-		<!--  Botones -->
 
 		<input type="submit" name="save"
 			value="<spring:message code="customer.save"></spring:message>"
@@ -127,11 +96,6 @@
 			onclick="javascript:relativeRedir('customer/display.do')" />
 
 	</form:form>
-	
-
-
-	
-
 
 </div>
 
@@ -145,4 +109,3 @@
 		</h1>
 		
 		</jstl:if>
-

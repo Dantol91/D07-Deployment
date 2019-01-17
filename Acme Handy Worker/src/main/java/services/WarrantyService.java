@@ -71,7 +71,7 @@ public class WarrantyService {
 	}
 
 	public Collection<Warranty> findWarrantyNotDraft() {
-		return this.warrantyRepository.findWarrantyNotDraft();
+		return this.warrantyRepository.getWarrantyNotDraft();
 	}
 
 }

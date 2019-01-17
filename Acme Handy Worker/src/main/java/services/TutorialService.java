@@ -25,8 +25,9 @@ public class TutorialService {
 	// Supporting Service
 
 	@Autowired
-	private ServiceUtils serviceUtils;
-	
+	private ServiceUtils		serviceUtils;
+
+
 	// Simple CRUD methods
 
 	public Tutorial create() {
@@ -51,17 +52,17 @@ public class TutorialService {
 		Assert.notNull(s);
 		this.tutorialRepository.delete(s);
 	}
-	
-	public Collection<Tutorial> findTutorialsByHandyWorker(HandyWorker h) {
+
+	public Collection<Tutorial> findTutorialsByHandyWorker(final HandyWorker h) {
 		Assert.notNull(h);
 		Assert.isTrue(h.getId() > 0);
-		Assert.notNull(this.tutorialRepository.findTutorialsByHandyWorker(h.getId()));
-		return this.tutorialRepository.findTutorialsByHandyWorker(h.getId());
+		Assert.notNull(this.tutorialRepository.getTutorialsByHandyWorker(h.getId()));
+		return this.tutorialRepository.getTutorialsByHandyWorker(h.getId());
 	}
-	
-	public Collection<Tutorial> findTutorialsBySponsorship(Sponsorship s) {
-		Sponsorship sponsorship = (Sponsorship) this.serviceUtils.checkObject(s);
-		return this.tutorialRepository.findTutorialsByHandyWorker(sponsorship.getId());
+
+	public Collection<Tutorial> findTutorialsBySponsorship(final Sponsorship s) {
+		final Sponsorship sponsorship = (Sponsorship) this.serviceUtils.checkObject(s);
+		return this.tutorialRepository.getTutorialsByHandyWorker(sponsorship.getId());
 	}
-	
+
 }

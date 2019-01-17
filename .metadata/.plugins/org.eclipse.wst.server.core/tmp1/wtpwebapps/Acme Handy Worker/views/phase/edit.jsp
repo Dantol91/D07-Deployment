@@ -84,16 +84,8 @@
 	</jstl:if>
 
 
-
-
-
-
 		</form:form>
 
 	</div>
-
-
-
-
 
 </security:authorize>

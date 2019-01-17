@@ -32,7 +32,7 @@ public class CategoryService {
 	public CategoryService() {
 		super();
 	}
-	// CRUD methods
+	// Simple CRUD methods
 
 	public Category create() {
 		final Category c = new Category();
@@ -65,23 +65,6 @@ public class CategoryService {
 			throw new IllegalArgumentException("Incompatibilidad de recursividad en el guardado");
 		}
 	}
-	public Boolean tieneHijas(final Category c) {
-		final Boolean res = true;
-		if (this.findByParent(c).isEmpty())
-			return false;
-		return res;
-
-	}
-
-	public void changeFixupTaskCategory(final Category cat) {
-		final Collection<FixupTask> res = this.fixUpTaskService.findAll();
-		for (final FixupTask f : res)
-			if (f.getCategory().equals(cat)) {
-				final Category padre = cat.getParentCategory();
-				f.setCategory(padre);
-				this.fixUpTaskService.save(f);
-			}
-	}
 
 	public void delete(final Category cat) {
 		Assert.notNull(cat);
@@ -91,10 +74,10 @@ public class CategoryService {
 			throw new IllegalArgumentException("NO SE PUEDE BORRAR LA CATEGORIA RAIZ");
 
 		}
-		if (this.tieneHijas(cat) == true) {
+		if (this.getChildCategory(cat) == true) {
 			for (final Category hija : this.findByParent(cat))
-				//this.delete(hija);
-				this.heredaAbuelo(hija);
+
+				this.getGrandParentCategory(hija);
 			this.changeFixupTaskCategory(cat);
 			this.categoryRepository.delete(cat);
 		}
@@ -106,11 +89,31 @@ public class CategoryService {
 
 	}
 
-	public void heredaAbuelo(final Category c) {
-		final Category padre = c.getParentCategory();
-		final Category abuelo = padre.getParentCategory();
+	// Other Methods
 
-		c.setParentCategory(abuelo);
+	public Boolean getChildCategory(final Category c) {
+		final Boolean res = true;
+		if (this.findByParent(c).isEmpty())
+			return false;
+		return res;
+
+	}
+
+	public void getGrandParentCategory(final Category c) {
+		final Category parent = c.getParentCategory();
+		final Category grandParent = parent.getParentCategory();
+
+		c.setParentCategory(grandParent);
+	}
+
+	public void changeFixupTaskCategory(final Category cat) {
+		final Collection<FixupTask> res = this.fixUpTaskService.findAll();
+		for (final FixupTask f : res)
+			if (f.getCategory().equals(cat)) {
+				final Category parent = cat.getParentCategory();
+				f.setCategory(parent);
+				this.fixUpTaskService.save(f);
+			}
 	}
 
 	public Collection<Category> findByParent(final Category parent) {
@@ -120,11 +123,11 @@ public class CategoryService {
 		return this.categoryRepository.findByParentId(parent.getId());
 	}
 
-	public Collection<Category> findAll(final Category dependency) {
+	public Collection<Category> findAllAux(final Category dependency) {
 		return this.findByParent(dependency);
 	}
 
-	public Category create(final Category dependency) {
+	public Category createAux(final Category dependency) {
 		this.serviceUtils.checkObject(dependency);
 		this.serviceUtils.checkPermisionActor(null, new String[] {
 			Authority.ADMIN

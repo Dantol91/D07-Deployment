@@ -18,9 +18,6 @@
 	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
-
-
-<%-- Si esto da error creo que tambien se puede poner así: access="hasRole('ADMIN') OR hasRole('CUSTOMER')" --%>
 <security:authorize access="hasAnyRole('ADMIN', 'HANDYWORKER')">
 
 	<b><spring:message code="handyWorker.name"></spring:message>:</b>
@@ -67,12 +64,4 @@
 	<input type="button" name="edit" value="${edit}"
 		onclick="javascript:relativeRedir('handyWorker/edit.do')" />
 
-	<%-- <spring:message code="handyWorker.return" var="return"></spring:message>
-	<input type="button" name="return" value="${return}"
-		onclick="javascript:relativeRedir('handyWorker/administrator/list.do')" /> --%>
-
-
 </security:authorize>
-
-
-

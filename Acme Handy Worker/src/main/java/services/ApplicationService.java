@@ -82,7 +82,7 @@ public class ApplicationService {
 		Application res;
 
 		final FixupTask f = app.getFixupTask();
-		if (this.getTieneYaACCEPTED(f))
+		if (this.getHasACCEPTED(f))
 			throw new IllegalArgumentException("Only one application among all the applications for a fixup task can be accepted");
 		//
 		if (app.getStatus().equals("ACCEPTED"))
@@ -99,18 +99,18 @@ public class ApplicationService {
 
 		return res;
 	}
-	private boolean getTieneYaACCEPTED(final FixupTask f) {
+	private boolean getHasACCEPTED(final FixupTask f) {
 		Boolean res = false;
-		for (final Application a : this.findAll(f))
+		for (final Application a : this.findAllAux(f))
 			if (a.getStatus().equals("ACCEPTED"))
 				res = true;
 		return res;
 	}
 
-	//Other Methods
+	// Other Methods
 
-	public Map<String, Double> applicationPriceStats() {
-		final Double[] statistics = this.applicationRepository.applicationPriceStats();
+	public Map<String, Double> getApplicationPriceStats() {
+		final Double[] statistics = this.applicationRepository.getApplicationPriceStats();
 		final Map<String, Double> res = new HashMap<>();
 
 		res.put("MIN", statistics[0]);
@@ -121,8 +121,8 @@ public class ApplicationService {
 		return res;
 	}
 
-	public Map<String, Double> pendingRatio() {
-		final Double ratio = this.applicationRepository.pendingRatio();
+	public Map<String, Double> getApplicationsPendingRatio() {
+		final Double ratio = this.applicationRepository.getApplicationsPendingRatio();
 		final Map<String, Double> res = new HashMap<>();
 
 		res.put("Ratio", ratio);
@@ -130,8 +130,8 @@ public class ApplicationService {
 		return res;
 	}
 
-	public Map<String, Double> acceptedRatio() {
-		final Double ratio = this.applicationRepository.acceptedRatio();
+	public Map<String, Double> getApplicationsAcceptedRatio() {
+		final Double ratio = this.applicationRepository.getApplicationsAcceptedRatio();
 		final Map<String, Double> res = new HashMap<>();
 
 		res.put("Ratio", ratio);
@@ -139,8 +139,8 @@ public class ApplicationService {
 		return res;
 	}
 
-	public Map<String, Double> appsRejectedRatio() {
-		final Double ratio = this.applicationRepository.acceptedRatio();
+	public Map<String, Double> getApplicationsRejectedRatio() {
+		final Double ratio = this.applicationRepository.getApplicationsRejectedRatio();
 		final Map<String, Double> res = new HashMap<>();
 
 		res.put("Ratio", ratio);
@@ -148,8 +148,8 @@ public class ApplicationService {
 		return res;
 	}
 
-	public Double lateApplicationsRatio() {
-		final Double ratio = this.applicationRepository.lateApplicationsRatio();
+	public Double getApplicationsPeriodElapsedRatio() {
+		final Double ratio = this.applicationRepository.getApplicationsPeriodElapsedRatio();
 
 		return ratio;
 	}
@@ -195,18 +195,18 @@ public class ApplicationService {
 		this.applicationRepository.flush();
 	}
 
-	public Collection<Application> findApplicationsByHandyWorker(final HandyWorker h) {
+	public Collection<Application> getApplicationsByHandyWorker(final HandyWorker h) {
 		Assert.notNull(h);
 		Assert.isTrue(h.getId() > 0);
 		Assert.notNull(this.handyWorkerService.findOne(h.getId()));
-		return this.applicationRepository.findApplicationsByHandyWorker(h.getId());
+		return this.applicationRepository.getApplicationsByHandyWorker(h.getId());
 	}
 
-	public Collection<Application> findAll(final FixupTask f) {
+	public Collection<Application> findAllAux(final FixupTask f) {
 		Assert.notNull(f);
 		Assert.isTrue(f.getId() > 0);
 		Assert.notNull(this.fixupTaskService.findOne(f.getId()));
-		return this.applicationRepository.findApplicationsByHandyWorker(f.getId());
+		return this.applicationRepository.getApplicationsByHandyWorker(f.getId());
 	}
 
 	public Application create(final FixupTask dependency) {

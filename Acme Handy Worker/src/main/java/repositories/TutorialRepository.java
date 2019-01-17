@@ -12,9 +12,9 @@ import domain.Tutorial;
 public interface TutorialRepository extends GenericRepository<Tutorial> {
 
 	@Query("select t from Tutorial t where t.handyWorker.id = ?1")
-	Collection<Tutorial> findTutorialsByHandyWorker(int handyWorkerId);
-	
+	Collection<Tutorial> getTutorialsByHandyWorker(int handyWorkerId);
+
 	@Query("select t from Tutorial t join t.sponsorships s where s.id = ?1")
-	Collection<Tutorial> findTutorialsBySponsorship(int sponsorshipId);
-	
+	Collection<Tutorial> getTutorialsBySponsorship(int sponsorshipId);
+
 }

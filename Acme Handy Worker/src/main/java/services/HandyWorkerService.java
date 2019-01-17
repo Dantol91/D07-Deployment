@@ -142,7 +142,7 @@ public class HandyWorkerService {
 	//Other methods
 
 	public Map<String, Collection<HandyWorker>> fixupTasksTop3() {
-		final Collection<HandyWorker> collection = this.handyWorkerRepository.findTop3HandyWorkerWithMoreComplaints();
+		final Collection<HandyWorker> collection = this.handyWorkerRepository.getTopThreeHandyWorkerWithMoreComplaints();
 		final Map<String, Collection<HandyWorker>> res = new HashMap<>();
 
 		res.put("Collection", collection);
@@ -152,12 +152,12 @@ public class HandyWorkerService {
 	}
 
 	public Collection<HandyWorker> getTop3HandyWorkerWithMoreComplaints() {
-		final Collection<HandyWorker> ratio = this.handyWorkerRepository.findTop3HandyWorkerWithMoreComplaints();
+		final Collection<HandyWorker> ratio = this.handyWorkerRepository.getTopThreeHandyWorkerWithMoreComplaints();
 		return ratio;
 	}
 
 	public Collection<HandyWorker> listHandyWorkerApplication() {
-		final Collection<HandyWorker> list = this.handyWorkerRepository.listHandyWorkerApplication();
+		final Collection<HandyWorker> list = this.handyWorkerRepository.getHandyWorkerApplication();
 		return list;
 	}
 
@@ -196,33 +196,33 @@ public class HandyWorkerService {
 	public boolean isSuspicious(final HandyWorker h) {
 		final HandyWorker handyWorker = (HandyWorker) this.serviceUtils.checkObject(h);
 		Boolean res = false;
-		for (final Application a : this.applicationService.findApplicationsByHandyWorker(handyWorker))
-			if (this.actorService.containsSpam(a.getWorkerComments())) {
+		for (final Application a : this.applicationService.getApplicationsByHandyWorker(handyWorker))
+			if (this.actorService.containsSpamWord(a.getWorkerComments())) {
 				res = true;
 				break;
 			}
 		for (final FixupTask f : this.fixupTaskService.findAcceptedFixupTasksByHandyWorker(handyWorker))
 			for (final Complaint com : f.getComplaints()) {
 				for (final Url u : com.getAttachments())
-					if (this.actorService.containsSpam(u.getUrl())) {
+					if (this.actorService.containsSpamWord(u.getUrl())) {
 						res = true;
 						break;
 					}
-				if (this.actorService.containsSpam(com.getDescription())) {
+				if (this.actorService.containsSpamWord(com.getDescription())) {
 					res = true;
 					break;
 				}
 				final Report report = this.reportService.findByComplaint(com);
 				for (final Note n : report.getNotes())
 					for (final String comment : n.getComments())
-						if (this.actorService.containsSpam(comment)) {
+						if (this.actorService.containsSpamWord(comment)) {
 							res = true;
 							break;
 						}
 			}
 		for (final WorkPlan w : this.workPlanService.findWorkPlanByHandyWorker(handyWorker))
 			for (final Phase p : w.getPhases())
-				if (this.actorService.containsSpam(p.getDescription()) || this.actorService.containsSpam(p.getTitle())) {
+				if (this.actorService.containsSpamWord(p.getDescription()) || this.actorService.containsSpamWord(p.getTitle())) {
 					res = true;
 					break;
 				}

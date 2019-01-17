@@ -44,6 +44,7 @@ public class AdministratorService {
 	// CRUD methods
 
 	public Administrator create() {
+
 		Administrator result;
 		result = new Administrator();
 		result.setUserAccount(this.userAccountService.create("ADMIN"));

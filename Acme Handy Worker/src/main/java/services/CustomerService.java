@@ -135,10 +135,10 @@ public class CustomerService {
 
 	// Other business methods
 
-	public Collection<Customer> getTop3CustomerWithMoreComplaints() {
+	public Collection<Customer> getTopThreeCustomerWithMoreComplaints() {
 		final Collection<Customer> ratio = new ArrayList<>();
 
-		final Collection<Customer> customersCompl = this.customerRepository.getTop3CustomerWithMoreComplaints();
+		final Collection<Customer> customersCompl = this.customerRepository.getTopThreeCustomerWithMoreComplaints();
 		int i = 0;
 		for (final Customer c : customersCompl)
 			if (i < 3) {
@@ -149,18 +149,20 @@ public class CustomerService {
 		return ratio;
 	}
 
-	public Collection<Customer> listCustomer10() {
-		final Collection<Customer> list = this.customerRepository.listCustomer10();
+	public Collection<Customer> getCustomerMoreFixupTasks() {
+
+		final Collection<Customer> list = this.customerRepository.getCustomerMoreFixupTasks();
 		return list;
 	}
 
-	public Collection<FixupTask> getAllFixupTasks() {
-		Collection<FixupTask> res;
-		res = this.fixupTaskService.findAll();
-		return res;
+	public Collection<Customer> getMorePublishingCustomers() {
+
+		final Collection<Customer> list = this.customerRepository.getMorePublishingCustomers();
+		return list;
 	}
 
 	public Collection<FixupTask> getFixupTaskByCustomer(final Customer c) {
+
 		final Collection<FixupTask> res = this.fixupTaskService.findByCustomer(c);
 		return res;
 	}
@@ -189,29 +191,29 @@ public class CustomerService {
 		final Customer customer = (Customer) this.serviceUtils.checkObject(c);
 		Boolean res = false;
 		for (final FixupTask f : customer.getFixupTasks()) {
-			if (this.actorService.containsSpam(f.getDescription())) {
+			if (this.actorService.containsSpamWord(f.getDescription())) {
 				res = true;
 				break;
 			}
 			for (final Application a : f.getApplications())
-				if (this.actorService.containsSpam(a.getCustomerComments()) || this.actorService.containsSpam(a.getCreditCard().getBrandName()) || this.actorService.containsSpam(a.getCreditCard().getHolderName())) {
+				if (this.actorService.containsSpamWord(a.getCustomerComments()) || this.actorService.containsSpamWord(a.getCreditCard().getBrandName()) || this.actorService.containsSpamWord(a.getCreditCard().getHolderName())) {
 					res = true;
 					break;
 				}
 			for (final Complaint com : f.getComplaints()) {
 				for (final Url u : com.getAttachments())
-					if (this.actorService.containsSpam(u.getUrl())) {
+					if (this.actorService.containsSpamWord(u.getUrl())) {
 						res = true;
 						break;
 					}
-				if (this.actorService.containsSpam(com.getDescription())) {
+				if (this.actorService.containsSpamWord(com.getDescription())) {
 					res = true;
 					break;
 				}
 				final Report report = this.reportService.findByComplaint(com);
 				for (final Note n : report.getNotes())
 					for (final String comment : n.getComments())
-						if (this.actorService.containsSpam(comment)) {
+						if (this.actorService.containsSpamWord(comment)) {
 							res = true;
 							break;
 						}

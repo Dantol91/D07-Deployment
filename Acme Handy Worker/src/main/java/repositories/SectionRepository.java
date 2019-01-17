@@ -18,6 +18,6 @@ public interface SectionRepository extends GenericRepository<Section> {
 	Collection<Section> findByNumberOrder(Integer numberOrder, Integer tutorialId);
 
 	@Query("select s from Section s where s.numberOrder > ?1 and s.tutorial.id = ?2")
-	Collection<Section> findNextSections(Integer numberOrder, Integer tutorialId);
+	Collection<Section> getNextSections(Integer numberOrder, Integer tutorialId);
 
 }
